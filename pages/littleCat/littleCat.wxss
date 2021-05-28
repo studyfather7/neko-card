@@ -1,0 +1,97 @@
+.avatar {
+  display: inline-block;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%; 
+}
+
+.search {
+  margin-left: 6px;
+}
+
+.search input {
+  font-size: 17px;
+}
+
+.nav {
+  flex-direction: row;
+}
+
+.navbar{
+  flex: none;
+  display: flex;
+  background: #fff;
+  margin-bottom: 8px;
+}
+.navbar .item{
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 80rpx;
+  color: #777373;
+}
+.navbar .item.active{
+  color: #94070A;
+}
+.navbar .item.active:after{
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background: #94070A;
+}
+
+.cat-name {
+  line-height: 46px;
+  margin-left: 6px;
+  border-bottom: 3rpx solid;
+  border-color: #e6dddd;
+  width: 80%;
+}
+
+
+.avatar-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  box-sizing: border-box;
+  padding: 6px 0;
+  margin-left: 10px;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  box-sizing: border-box;
+  padding: 6px 0;
+}
+
+.float-btn {
+  position: fixed;
+  width: 60%;
+  top: 88%;
+  right: 20%;
+}
+
+.float-btn button {
+  color: rgb(80, 74, 74);
+}
+
+/* 椭圆央视 */
+/* .float-btn button {
+  border-radius: 50% / 50%;
+} */
+
+
+
+

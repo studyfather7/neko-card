@@ -1,0 +1,9 @@
+<view wx:for="{{all_cat}}">
+  <navigator url="/pages/details/details?id={{item._id}}&isUser={{isUser}}">
+    <view class="avatar-container">
+      <!-- <image lazyLoad class="avator " mode="aspectFill" src="https://pku-lostangel.oss-cn-beijing.aliyuncs.com/{{item.name}}_circle.png"></image> -->
+      <image lazy-load class="avatar" mode="aspectFill" src="{{item.avatar}}"></image>
+      <view class="cat-name">{{item.name}}</view>
+    </view>
+  </navigator>
+</view>

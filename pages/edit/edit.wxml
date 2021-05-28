@@ -1,0 +1,68 @@
+<view class="page">
+    <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+
+    <mp-form-page title="猫咪信息">
+        <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+            <view class="container flex">
+                <view class="avatar-container">
+                    <image src="{{src}}" class="avatar" bindtap="upload"></image>
+                    <view class="item flex" bindtap="upload">点击上传猫咪头像</view>
+                </view>
+            </view>
+            <mp-cells title="绝育">
+                <mp-checkbox-group prop="sterilization" multi="" bindchange="radioChange">
+                    <mp-checkbox wx:for="{{sterilizationItems}}" wx:key="value" label="{{item.name}}" value="{{item.value}}" checked="{{item.checked}}"></mp-checkbox>
+                </mp-checkbox-group>
+            </mp-cells>
+
+            <mp-cells title="领养">
+                <mp-checkbox-group prop="adoption" multi="" bindchange="radioChange">
+                    <mp-checkbox wx:for="{{adoptionItems}}" wx:key="value" label="{{item.name}}" value="{{item.value}}" checked="{{item.checked}}"></mp-checkbox>
+                </mp-checkbox-group>
+            </mp-cells>
+
+            <mp-cells>
+                <mp-cell prop="name" title="名字" ext-class="">
+                    <input value="{{catName}}" bindinput="formInputChange" data-field="name" class="weui-input" placeholder="请输入名字"/>
+                </mp-cell>
+                <mp-cell prop="gender" title="性别" ext-class="">
+                    <radio-group bindchange="genderTap">
+                        <label class="radio1">
+                            <radio value="r1" checked="{{isGong}}"/>公
+                        </label>
+                        <label class="radio2">
+                            <radio value="r2" checked="{{isMu}}"/>母
+                        </label>
+                    </radio-group>
+                </mp-cell>
+                <mp-cell prop="appearance" title="外貌" ext-class="">
+                    <input value="{{catAppearance}}" bindinput="formInputChange" data-field="appearance" class="weui-input" placeholder="请输入外貌"/>
+                </mp-cell>
+                <mp-cell prop="charac" title="性格" ext-class="">
+                    <input value="{{catCharac}}" bindinput="formInputChange" data-field="charac" class="weui-input" placeholder="请输入性格"/>
+                </mp-cell>
+                <mp-cell wx:if="{{isSterilization}}" prop="sterilizationDate" title="绝育日期" ext-class="">
+                    <picker mode="date" value="{{sterilizationDate}}" start="2015-09-01" end="{{sterilizationDate}}" bindchange="sterilizationDateChange">
+                        <view class="weui-input">{{sterilizationDate}}</view>
+                    </picker>
+                </mp-cell>
+                <mp-cell wx:if="{{isAdoption}}" prop="adoptionDate" title="领养日期" ext-class="">
+                    <picker mode="date" value="{{adoptionDate}}" start="2015-09-01" end="{{adoptionDate}}" bindchange="adoptionDateChange">
+                        <view class="weui-input">{{adoptionDate}}</view>
+                    </picker>
+                </mp-cell>
+                <mp-cell>
+                    <mp-uploader class="cell-uploader" bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="3" title="图片上传"></mp-uploader>
+                </mp-cell>
+            </mp-cells>
+        </mp-form>
+
+
+        <view slot="button">
+            <button form-type="reset" class="weui-btn" type="default" bindtap="{{submitTap}}">上传</button>
+        </view>
+    </mp-form-page>
+    <view class="float-loading">
+        <mp-loading type="circle" tips="上传中" show="{{isShow}}"></mp-loading>
+    </view>
+</view>

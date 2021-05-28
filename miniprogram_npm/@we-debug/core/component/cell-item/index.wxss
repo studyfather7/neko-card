@@ -1,0 +1,19 @@
+.w-cell-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px 12px 0;
+  margin-left: 34rpx;
+  font-size: 14px;
+  border-bottom: 1rpx solid #dddddd;
+}
+.w-cell-item:last-child {
+  border-bottom-width: 0;
+}
+.w-cell-item .w-cell-body {
+  flex: 1;
+  padding-right: 6px;
+}
+.w-cell-item .w-cell-foot {
+  text-align: right;
+  color: #646566;
+}

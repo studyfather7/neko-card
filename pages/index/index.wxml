@@ -1,0 +1,42 @@
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<!-- 所有猫 -->
+<view hidden="{{currentTab!==0}}">
+  <view wx:for="{{all_cat}}">
+      <navigator url="/pages/details/details?id={{item._id}}">
+          <view class="avatar-container">
+              <!-- <image lazyLoad class="avator " mode="aspectFill" src="https://pku-lostangel.oss-cn-beijing.aliyuncs.com/{{item.name}}_circle.png"></image> -->
+              <image lazy-load class="avatar" mode="aspectFill" src="{{item.avatar}}"></image>
+              <view class="cat-name">{{item.name}}</view>
+          </view>
+      </navigator>
+  </view>
+  
+  <view class="float-btn">
+    <button bindtap="goToEdit" type="default">填写猫咪信息</button>
+  </view>
+</view>
+ 
+<!--毕业-->
+<view hidden="{{currentTab!==1}}">
+  <block wx:for="{{fostered_catlist}}">
+    <navigator url="/pages/cats/{{item.name}}/{{item.name}}">
+        <view class="avatar-avatar-container">
+            <!-- <image lazyLoad class="avator " mode="aspectFill" src="https://pku-lostangel.oss-cn-beijing.aliyuncs.com/{{item.name}}_circle.png"></image> -->
+            <image lazy-load class="avatar" mode="aspectFill" src="/pages/images/chongwutubiao04.png"></image>
+            <view class="cat-name">{{itemname}}</view>
+        </view>
+    </navigator>
+  </block>
+</view>
+
+
+
+
+
+
+
+
+
